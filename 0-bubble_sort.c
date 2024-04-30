@@ -1,5 +1,5 @@
 #include "sort.h"
-/**
+/*
  * bubble_sort - sorts an array of integers in ascending order
  *
  * @array: array of integers
@@ -9,28 +9,22 @@
 void bubble_sort(int *array, size_t size)
 {
 	size_t i;
-	int other;
+	size_t other;
 	int temp;
 
-	if (size < 2 || !array)
+	array[other] = array[1];
+	array[other + 1] = array[2];
+
+	if (array == NULL)
 		return;
 
-	for (i = 0; i < size; i++)
-	{
-		if (array[other] > array[other + 1])
+	for (i = 0; i < size - 1; i++)
+		for (other = 0; other < size - 1; other++)
 		{
-			temp = array[other];
-			array[other] = array[other + 1];
-			array[other + 1] = temp;
-			print_array(array, size);
+			do {
+				temp = array[1];
+				array[1] = array[2];
+				array[2] = temp;
+			}while (array[1] > array[2]);
 		}
-
-		else if (array[other + 1])
-		{
-			temp = array[other];
-			array[other] = array[other + 1];
-			array[other + 1] = temp;
-			print_array(array, size);
-		}
-	}
 }
